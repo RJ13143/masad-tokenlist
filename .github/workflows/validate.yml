@@ -1,0 +1,13 @@
+name: Validate Token List
+on:
+  push:
+    paths:
+      - '**.json'
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - run: |
+        npm install -g token-lists
+        token-lists validate masad_tokenlist.json
